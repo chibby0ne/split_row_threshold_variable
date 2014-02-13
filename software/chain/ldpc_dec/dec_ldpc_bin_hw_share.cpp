@@ -765,7 +765,7 @@ int Decoder_LDPC_Binary_HW_Share::Check_Node_Split_Row(Buffer<int> &in_out_msg, 
         if (part_num == 0) {
             part_length = 0;
         } else {
-            part_length = partition_length[part_num - 1];
+            part_length += partition_length[part_num - 1];
         }
         sign_part[part_num] = Split_Row_Local_Minimum_Sign(parts[part_num], local_min1[part_num], min1_idx[part_num], local_min2[part_num], threshold_en[part_num], threshold, part_length);
         // cout << "local_min1[" << part_num << "] = " << local_min1[part_num] << endl;
@@ -791,7 +791,7 @@ int Decoder_LDPC_Binary_HW_Share::Check_Node_Split_Row(Buffer<int> &in_out_msg, 
             if (part_num == 0) {
                 part_length = 0;
             } else {
-                part_length = partition_length[part_num - 1];
+                part_length += partition_length[part_num - 1];
             }
 
             if (local_min1[part_num] <= threshold && local_min2[part_num] <= threshold) {
@@ -829,7 +829,7 @@ int Decoder_LDPC_Binary_HW_Share::Check_Node_Split_Row(Buffer<int> &in_out_msg, 
             if (part_num == 0) {
                 part_length = 0;
             } else {
-                part_length = partition_length[part_num - 1];
+                part_length += partition_length[part_num - 1];
             }
 
             if (local_min1[part_num] > threshold && Neighbors_Threshold_Enable(part_num, partitions, threshold_en)) {
